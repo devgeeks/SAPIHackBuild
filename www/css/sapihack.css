@@ -41,8 +41,7 @@ form.search input {
 	font-size: 1.5em;
 	padding: 0 0 0 15px;
 }
-.map {
+#map_canvas {
 	width: 100%;
-	min-height: 300px;
-	z-index: 9999;
+	min-height: 200px;
 }

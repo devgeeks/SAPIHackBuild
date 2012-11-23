@@ -25,12 +25,12 @@
 			$(e.target).find('input').blur();
 			_self.whereAmI(function(lat,lon){
 				var query = window.encodeURIComponent($('#search-text').val());
-				var sensisEndpoint = "http://api.sensis.com.au/ob-20110511/test/search?radius=5&location="+lat+","+lon;
-				var url = sensisEndpoint + "&key=" + SAPIHackBuild.key + "&query=" + query;
+				var sensisEndpoint = "http://api.sensis.com.au/ob-20110511/test/search?radius=1&location="+lat+","+lon;
+				var url = sensisEndpoint + "&key=" + SAPIHackBuild.key + "&query=" + query + "&cachebuster=" + new Date().getTime();
 				_self.mapstraction.removeAllMarkers();
 				$.getJSON(url,function(response){
 					if (response.results && response.results.length > 0) {
-						$.each(response.results,function(index, result){
+            $.each(response.results,function(index, result){
 							var lat2 = result.primaryAddress.latitude || 0;
 							var lon2 = result.primaryAddress.longitude || 0;
 							if (lat2 && lon2) {
@@ -40,9 +40,19 @@
 							}
 						});
 						_self.mapstraction.declutterMarkers();
-						var point = new mxn.LatLonPoint(lat,lon);
-						_self.mapstraction.setCenterAndZoom(point,16);
+            _self.mapstraction.autoCenterAndZoom();
+            if (_self.mapstraction.getZoom() > 16) _self.mapstraction.setZoom(16);
 					}
+          else {
+            var point = new mxn.LatLonPoint(lat,lon);
+            _self.mapstraction.setCenterAndZoom(point,16);
+            navigator.notification.alert(
+              "No results found",
+              null,
+              'Search',
+              'OK'
+            );
+          }
 				});
 			});
 		},
