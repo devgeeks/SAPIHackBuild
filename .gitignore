@@ -90,7 +90,6 @@ CordovaLib/Classes/UIDevice+Extensions.m
 CordovaLib/CordovaLib_Prefix.pch
 CordovaLib/CordovaLib.xcodeproj/project.pbxproj
 CordovaLib/VERSION
-README.md
 SAPIHackBuild.xcodeproj/project.pbxproj
 SAPIHackBuild/.gitignore
 SAPIHackBuild/Classes/AppDelegate.h
