@@ -31,7 +31,6 @@
 				$.getJSON(url,function(response){
 					if (response.results && response.results.length > 0) {
 						$.each(response.results,function(index, result){
-							console.log(result);
 							var lat2 = result.primaryAddress.latitude || 0;
 							var lon2 = result.primaryAddress.longitude || 0;
 							if (lat2 && lon2) {
