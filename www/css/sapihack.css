@@ -45,3 +45,6 @@ form.search input {
 	width: 100%;
 	min-height: 200px;
 }
+.map div:first {
+	z-index: 100 !important;
+}

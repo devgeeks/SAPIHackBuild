@@ -16,6 +16,7 @@
 				_self.whereAmI(function(lat,lon){
 					var point = new mxn.LatLonPoint(lat,lon);
 					_self.mapstraction.setCenterAndZoom(point,16);
+          $('.map div:first').css('z-index','100');
 				});
 			},300); // WHY ?!?
 		},
@@ -34,8 +35,17 @@
 							var lat2 = result.primaryAddress.latitude || 0;
 							var lon2 = result.primaryAddress.longitude || 0;
 							if (lat2 && lon2) {
-								var loc = new mxn.LatLonPoint(lat2,lon2);
-								var marker = new mxn.Marker(loc);
+								var loc = {
+                  point: new mxn.LatLonPoint(lat2,lon2),
+                  infoBubble: "<div><small>"+result.name+"<br>"+
+                    result.primaryAddress.addressLine+
+                    ", "+result.primaryAddress.suburb+
+                    " "+result.primaryAddress.state+
+                    " "+result.primaryAddress.postcode+
+                    "</small></div>",
+                  label: result.name
+                };
+								var marker = new mxn.Marker(loc.point);
 								_self.mapstraction.addMarkerWithData(marker,loc);
 							}
 						});
