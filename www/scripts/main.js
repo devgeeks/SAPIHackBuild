@@ -17,7 +17,7 @@
 					var point = new mxn.LatLonPoint(lat,lon);
 					_self.mapstraction.setCenterAndZoom(point,16);
 				});
-			},2000); // WHY ?!?
+			},300); // WHY ?!?
 		},
 		searchNearby: function(e) {
 			e.preventDefault();
