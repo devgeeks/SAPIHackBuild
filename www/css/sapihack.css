@@ -1,0 +1,48 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+.toolbar {
+	background-color: #333;
+	color: #fff;
+	font-family: "Helvetica Neue";
+	padding: 0;
+	margin: 0;
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.03, #000),
+    color-stop(0.52, #111),
+    color-stop(0.76, #222)
+  );
+}
+.toolbar h1 {
+	font-size: 1.3em;
+	text-align: center;
+	padding: 10px 0 10px 0;
+}
+form.search {
+	padding: 10px 0 10px 0;
+	background-color: #ccc;
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.03, #ccc),
+    color-stop(0.52, #ddd),
+    color-stop(0.76, #eee)
+  );
+}
+form.search input {
+	width: 94%;
+	height: 40px;
+	margin: 0 3% 0 3%;
+	font-size: 1.5em;
+	padding: 0 0 0 15px;
+}
+.map {
+	width: 100%;
+	min-height: 300px;
+	z-index: 9999;
+}
